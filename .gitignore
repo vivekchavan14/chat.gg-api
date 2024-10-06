@@ -1,0 +1,52 @@
+# Go binaries
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Go package cache
+/pkg/
+# Go module files
+/go.sum
+/go.mod
+
+# IDEs and Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*.bak
+
+# Build directory
+/bin/
+# Test binary, build with `go test`
+*.test
+
+# Environment variables
+.env
+
+# Coverage files
+*.out
+
+# Log files
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Vendor directory
+/vendor/
+
+# Fresh files
+/.fresh/
+
+# Ignore the following if using Docker
+docker-compose.override.yml
+Dockerfile*
+.dockerignore
+
+# GoLand project files
+*.iml
