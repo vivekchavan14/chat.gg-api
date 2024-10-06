@@ -1,17 +1,17 @@
 package main
 
 import (
-	"log"
+	"server/initializers"
 
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
 )
 
+func init() {
+	initializers.GetEnv()
+	initializers.ConnectDB()
+}
+
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading from .env")
-	}
 	router := gin.Default()
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.JSON(200, gin.H{
