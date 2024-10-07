@@ -12,7 +12,7 @@ import (
 
 type AuthController struct {
 	DB     *gorm.DB
-	jwtKey []byte
+	JwtKey []byte
 }
 
 func (ac *AuthController) Register(ctx *gin.Context) {
@@ -95,7 +95,7 @@ func (ac *AuthController) Login(ctx *gin.Context) {
 	}
 
 	// Generate JWT token
-	token, err := utils.GenerateJWT(user.Username, ac.jwtKey)
+	token, err := utils.GenerateJWT(user.Username, ac.JwtKey)
 	if err != nil {
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Could not generate token"})
 		return
