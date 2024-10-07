@@ -17,7 +17,7 @@ type AuthController struct {
 
 func (ac *AuthController) Register(ctx *gin.Context) {
 	var req struct {
-		Username    string `json:"username" binding:"requred`
+		Username    string `json:"username" binding:"required"` // Fixed typo
 		Password    string `json:"password" binding:"required"`
 		PhoneNumber string `json:"phone_number" binding:"required"`
 	}
@@ -31,13 +31,13 @@ func (ac *AuthController) Register(ctx *gin.Context) {
 
 	if len(req.PhoneNumber) < 10 {
 		ctx.JSON(http.StatusBadRequest, gin.H{
-			"error": "invalid phone number",
+			"error": "Invalid phone number",
 		})
 		return
 	}
 
 	var existingUser models.User
-	if err := ac.DB.Where("username = ? OR phone_number = ?", req.Username, req.PhoneNumber).Find(&existingUser).Error; err != nil {
+	if err := ac.DB.Where("username = ? OR phone_number = ?", req.Username, req.PhoneNumber).First(&existingUser).Error; err == nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
 			"error": "User already exists",
 		})
