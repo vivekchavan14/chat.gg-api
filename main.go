@@ -7,6 +7,7 @@ import (
 	"server/middlewares"
 	"server/models"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
@@ -56,6 +57,18 @@ func main() {
 
 	// Initialize Gin router
 	router := gin.Default()
+
+	// CORS configuration
+	corsConfig := cors.Config{
+		AllowOrigins:     []string{"*"}, // Replace "*" with your frontend origin if you want to restrict
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Authorization"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}
+
+	// Apply CORS middleware
+	router.Use(cors.New(corsConfig))
 
 	// Authentication routes
 	router.POST("/register", authController.Register)
