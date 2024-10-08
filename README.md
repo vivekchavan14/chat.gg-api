@@ -1,5 +1,9 @@
 # chat.gg-api
 
+# TODO (pending)
+- Deploy on AWS
+- Setup CI/CD pipelines
+
 This repository contains the backend for a chat application built using Golang, Gin, and PostgreSQL with GORM as the ORM. It handles user authentication, message routing, contact management, and real-time communication via WebSockets.
 
 # Tech Stack
@@ -7,7 +11,7 @@ This repository contains the backend for a chat application built using Golang, 
 - Gin Framework: Web framework for routing and middleware
 - PostgreSQL: Relational database for storing persistent data
 - GORM: Golang ORM library to interact with PostgreSQL
--  Gorilla WebSocket: Protocol for real-time communication
+- Gorilla WebSocket: For implementing websocket protocol
 - JWT (JSON Web Tokens): For secure authentication and authorization
 
 # API Endpoints
