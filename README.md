@@ -1,5 +1,9 @@
 # chat.gg-api
 
+# TODO (pending)
+- Deploy on AWS
+- Setup CI/CD pipelines
+
 This repository contains the backend for a chat application built using Golang, Gin, and PostgreSQL with GORM as the ORM. It handles user authentication, message routing, contact management, and real-time communication via WebSockets.
 
 # Tech Stack
