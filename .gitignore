@@ -43,10 +43,7 @@ temp/
 # Fresh files
 /.fresh/
 
-# Ignore the following if using Docker
-docker-compose.override.yml
-Dockerfile*
-.dockerignore
+
 
 # GoLand project files
 *.iml
